@@ -1,5 +1,6 @@
 {
     "default": {
+        "outcome": { "baseline": "2.2.0-beta.0", "port-version": 0 },
         "quickcpplib-unofficial": { "baseline": "2020-10-15", "port-version": 3 }
     }
 }
