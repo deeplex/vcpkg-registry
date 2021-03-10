@@ -1,5 +1,9 @@
 {
     "default": {
+        "deeppack": {
+            "baseline": "2021-03-10",
+            "port-version": 0
+        },
         "ntkernel-error-category": {
             "baseline": "1.0",
             "port-version": 0
