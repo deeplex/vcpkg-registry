@@ -1,0 +1,9 @@
+{
+    "name": "quickcpplib-unofficial",
+    "version-date": "2020-10-15",
+    "port-version": 3,
+    "description": "Quick C++ Libraries: Eliminate all the tedious hassle when making state-of-the-art C++ 14 or 17 libraries!",
+    "dependencies": [
+        "gsl-lite"
+    ]
+}

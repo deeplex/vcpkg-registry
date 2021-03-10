@@ -1,0 +1,14 @@
+diff --git a/include/quickcpplib/packed_backtrace.hpp b/include/quickcpplib/packed_backtrace.hpp
+index 0f83f04..0267dfe 100644
+--- a/include/quickcpplib/packed_backtrace.hpp
++++ b/include/quickcpplib/packed_backtrace.hpp
+@@ -31,6 +31,9 @@ Distributed under the Boost Software License, Version 1.0.
+ #include <cstddef>  // for ptrdiff_t etc
+ #include <cstdint>  // for uint32_t etc
+ #include <cstring>  // for memset
++#include <cstdlib>  // for abort
++
++#include <stdexcept> // for std::out_of_range
+ 
+ QUICKCPPLIB_NAMESPACE_BEGIN
+ 

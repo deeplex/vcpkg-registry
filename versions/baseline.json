@@ -1,0 +1,5 @@
+{
+    "default": {
+        "quickcpplib-unofficial": { "baseline": "2020-10-15", "port-version": 3 }
+    }
+}
