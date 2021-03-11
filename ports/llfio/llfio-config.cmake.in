@@ -1,0 +1,12 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(quickcpplib)
+find_dependency(outcome)
+if (WIN32)
+    find_dependency(ntkernel-error-category)
+endif()
+
+include("${CMAKE_CURRENT_LIST_DIR}/llfio-targets.cmake")
+
+check_required_components(llfio)

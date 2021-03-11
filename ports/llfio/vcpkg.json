@@ -1,0 +1,13 @@
+{
+    "name": "llfio",
+    "version-date": "2020-10-06",
+    "homepage": "https://github.com/ned14/llfio",
+    "dependencies": [
+        {
+            "name": "ntkernel-error-category",
+            "platform": "windows"
+        },
+        "outcome",
+        "quickcpplib-unofficial"
+    ]
+}
