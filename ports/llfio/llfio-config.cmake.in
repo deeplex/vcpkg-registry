@@ -1,7 +1,7 @@
 @PACKAGE_INIT@
 
 include(CMakeFindDependencyMacro)
-find_dependency(quickcpplib)
+find_dependency(quickcpplib-unofficial)
 find_dependency(outcome)
 if (WIN32)
     find_dependency(ntkernel-error-category)
