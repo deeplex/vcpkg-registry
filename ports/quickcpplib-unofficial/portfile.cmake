@@ -2,13 +2,13 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO "ned14/quickcpplib"
-    REF a47807c6b8ed0a4f2de7ffd8315a431de6d4278d
-    SHA512 a20cbe526da9ddb30e0ffb898e990d682512a5540818f8330b0bd64eeac9358d1e2208659947300570be1da780494ba348036bffd97304a2132e0d74c1d6d68c
+    REF 24d92c71ef5d2200f7e42bc47e6dd59ad6d99fe3
+    SHA512 9e39237833dea8288fbc5fda4189d971dff76284e3f352c7a0762e71a4bf311f4550fefd0f8926b6d971ca1c62acc3d055af233912de0adb0c6821995b6ce7e7
     HEAD_REF master
     PATCHES
-        "backtrace-include-fix.patch"
+        #"backtrace-include-fix.patch"
         "gsl-include-fix.patch"
-        "signal-guard-abi.patch"
+        #"signal-guard-abi.patch"
 )
 
 file(REMOVE "${SOURCE_PATH}/CMakeLists.txt")
