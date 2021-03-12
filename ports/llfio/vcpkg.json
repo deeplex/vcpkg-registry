@@ -1,8 +1,8 @@
 {
     "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
     "name": "llfio",
-    "version-date": "2020-10-06",
-    "port-version": 1,
+    "version-date": "2021-03-12",
+    "port-version": 0,
     "homepage": "https://github.com/ned14/llfio",
     "dependencies": [
         {
