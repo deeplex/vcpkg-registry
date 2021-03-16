@@ -2,11 +2,10 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO "ned14/llfio"
-    REF a74411eddb6401ab884c5f92cccc24b9a64a9e6f
-    SHA512 e0f8b030ac995c24135aae89450f05ad75e5fed10caec254b327f1fc0d4c23eaeb53b7859e5e5b4731ffeace9fdfc75cd04a66025243e7f35c7dea37dc0d1b6c
+    REF 17a15470b8d079625732bccfc96a3dd45e18f1c1
+    SHA512 2b39ea89e76267cff0875827f79d8261f990433ff3c449fb356cdc13b4f5836be9574fceff9c24d81d70c5cabe355baf54c33357642c12f2929605bc53a27ba4
     HEAD_REF master
     PATCHES
-        disable-module-imports.patch
 )
 
 file(REMOVE "${SOURCE_PATH}/CMakeLists.txt")

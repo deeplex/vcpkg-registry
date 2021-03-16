@@ -13,9 +13,9 @@ find_package(outcome CONFIG REQUIRED)
 add_library(llfio src/llfio.cpp)
 target_compile_definitions(llfio
     PUBLIC
-        $<$<NOT:$<BOOL:${BUILD_SHARED_LIBS}>>:LLFIO_STATIC_LINK=1>
         LLFIO_EXPERIMENTAL_STATUS_CODE=0
         LLFIO_DISABLE_ABI_PERMUTATION=1
+        LLFIO_DISABLE_CXX_MODULES=1
 
     INTERFACE
         LLFIO_HEADERS_ONLY=0
@@ -23,6 +23,10 @@ target_compile_definitions(llfio
     PRIVATE
         LLFIO_SOURCE=1
 )
+if (NOT BUILD_SHARED_LIBS)
+    target_compile_definitions(llfio PUBLIC LLFIO_STATIC_LINK=1)
+endif()
+
 target_include_directories(llfio PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
