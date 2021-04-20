@@ -1,0 +1,6 @@
+{
+    "name": "boringssl",
+    "version-date": "2019-09-06",
+    "description": "googles openssl fork",
+    "homepage": "https://boringssl.googlesource.com/boringssl/"
+}

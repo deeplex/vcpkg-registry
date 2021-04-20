@@ -1,0 +1,12 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a2d31fb..47a5b5c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -145,6 +145,7 @@ elseif(MSVC)
+       "C4061" # enumerator 'identifier' in switch of enum 'enumeration' is not
+               # explicitly handled by a case label
+               # Disable this because it flags even when there is a default.
++      "C4065" # switch statement contains 'default' but no 'case' labels
+       "C4100" # 'exarg' : unreferenced formal parameter
+       "C4127" # conditional expression is constant
+       "C4200" # nonstandard extension used : zero-sized array in
