@@ -8,6 +8,10 @@
             "baseline": "2021-03-10",
             "port-version": 0
         },
+        "gtest": {
+            "baseline": "2020-09-30",
+            "port-version": 0
+        },
         "libb2": {
             "baseline": "0.98.0",
             "port-version": 0
