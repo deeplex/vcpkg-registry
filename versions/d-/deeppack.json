@@ -24,6 +24,11 @@
             "version-date": "2021-06-30",
             "port-version": 0,
             "git-tree": "5cc15c2d0c682dadd8f34f1434b5200102bbc3c1"
+        },
+        {
+            "version-date": "2021-08-02",
+            "port-version": 0,
+            "git-tree": "9670536e021bd34ed6f4a4eae7aa1418c7150881"
         }
     ]
 }
