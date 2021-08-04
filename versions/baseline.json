@@ -9,7 +9,7 @@
             "port-version": 0
         },
         "deeppack": {
-            "baseline": "2021-08-02",
+            "baseline": "2021-08-03",
             "port-version": 0
         },
         "gtest": {

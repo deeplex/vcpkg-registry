@@ -1,6 +1,6 @@
 {
     "name": "deeppack",
-    "version-date": "2021-08-02",
+    "version-date": "2021-08-03",
     "homepage": "https://github.com/deeplex-net/deeppack",
     "dependencies": [
         "boost-endian",
