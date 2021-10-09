@@ -1,9 +1,0 @@
-{
-    "name": "outcome",
-    "version-semver": "2.2.0-beta.0",
-    "homepage": "https://github.com/ned14/outcome",
-    "description": "Provides very lightweight outcome<T> and result<T> (non-Boost edition)",
-    "dependencies": [
-        "quickcpplib-unofficial"
-    ]
-}

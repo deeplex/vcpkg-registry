@@ -1,15 +1,19 @@
 {
-    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
-    "name": "llfio",
-    "version-date": "2021-03-16",
-    "port-version": 0,
-    "homepage": "https://github.com/ned14/llfio",
-    "dependencies": [
-        {
-            "name": "ntkernel-error-category",
-            "platform": "windows"
-        },
-        "outcome",
-        "quickcpplib-unofficial"
-    ]
+  "name": "llfio",
+  "version-string": "2.0-20210922",
+  "port-version": 1,
+  "description": "P1031 low level file i/o and filesystem library for the C++ standard",
+  "homepage": "https://github.com/ned14/llfio",
+  "supports": "!(uwp | static)",
+  "dependencies": [
+    "outcome"
+  ],
+  "features": {
+    "run-tests": {
+      "description": "Build and run the dependency validation tests"
+    },
+    "status-code": {
+      "description": "Have LLFIO use SG14 `status_code` (proposed `std::error`) instead of `std::error_code`."
+    }
+  }
 }

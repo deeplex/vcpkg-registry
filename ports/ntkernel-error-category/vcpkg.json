@@ -1,7 +1,0 @@
-{
-    "name": "ntkernel-error-category",
-    "version": "1.0",
-    "port-version": 0,
-    "homepage": "https://github.com/ned14/ntkernel-error-category",
-    "description": "A C++ 11 std::error_category for the NT kernel's NTSTATUS error codes"
-}
