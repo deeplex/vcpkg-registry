@@ -81,6 +81,24 @@ vcpkg_install_cmake()
 
 vcpkg_fixup_cmake_targets(CONFIG_PATH lib/cmake/llfio)
 
+if(VCPKG_LIBRARY_LINKAGE STREQUAL "static")
+    set(EXPORTS_PATH "${CURRENT_PACKAGES_DIR}/share/${PORT}/llfioExports.cmake")
+    file(READ ${EXPORTS_PATH} contents)
+
+    string(REGEX REPLACE
+[[ Cleanup temporary variables\.
+set\(_IMPORT_PREFIX\)
+]]
+[[ Cleanup temporary variables.
+set(_IMPORT_PREFIX)
+list(FILTER _IMPORT_CHECK_TARGETS EXCLUDE REGEX _dl)
+]]
+        contents ${contents}
+    )
+
+    file(WRITE ${EXPORTS_PATH} ${contents})
+endif()
+
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include" "${CURRENT_PACKAGES_DIR}/debug/share")
 if(VCPKG_LIBRARY_LINKAGE STREQUAL "static")
     file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/bin" "${CURRENT_PACKAGES_DIR}/debug/bin")
