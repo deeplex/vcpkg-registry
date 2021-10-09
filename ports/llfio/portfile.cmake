@@ -58,6 +58,7 @@ vcpkg_configure_cmake(
     SOURCE_PATH "${SOURCE_PATH}"
     PREFER_NINJA
     OPTIONS
+        -DCMAKE_CXX_STANDARD=20
         -DPROJECT_IS_DEPENDENCY=On
         -Dquickcpplib_FOUND=1
         -Doutcome_FOUND=1
@@ -91,7 +92,7 @@ set\(_IMPORT_PREFIX\)
 ]]
 [[ Cleanup temporary variables.
 set(_IMPORT_PREFIX)
-list(FILTER _IMPORT_CHECK_TARGETS EXCLUDE REGEX _dl)
+list(FILTER _IMPORT_CHECK_TARGETS EXCLUDE REGEX "dl$")
 ]]
         contents ${contents}
     )
