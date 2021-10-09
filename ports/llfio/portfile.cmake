@@ -94,10 +94,10 @@ set\(_IMPORT_PREFIX\)
 set(_IMPORT_PREFIX)
 list(FILTER _IMPORT_CHECK_TARGETS EXCLUDE REGEX "dl$")
 ]]
-        contents ${contents}
+        contents "${contents}"
     )
 
-    file(WRITE ${EXPORTS_PATH} ${contents})
+    file(WRITE ${EXPORTS_PATH} "${contents}")
 endif()
 
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include" "${CURRENT_PACKAGES_DIR}/debug/share")
