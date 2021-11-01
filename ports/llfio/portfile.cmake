@@ -40,43 +40,36 @@ file(COPY "${CURRENT_INSTALLED_DIR}/share/ned14-internal-quickcpplib/"
 file(REMOVE_RECURSE "${SOURCE_PATH}/include/llfio/ntkernel-error-category")
 file(RENAME "${NTKEC_SOURCE_PATH}" "${SOURCE_PATH}/include/llfio/ntkernel-error-category")
 
-# Already installed dependencies don't appear on the include path, which LLFIO assumes.
-string(APPEND VCPKG_CXX_FLAGS " \"-I${CURRENT_INSTALLED_DIR}/include\"")
-string(APPEND VCPKG_C_FLAGS " \"-I${CURRENT_INSTALLED_DIR}/include\"")
-
 set(extra_config)
 # cmake does not correctly set CMAKE_SYSTEM_PROCESSOR when targeting ARM on Windows
 if(VCPKG_TARGET_IS_WINDOWS AND (VCPKG_TARGET_ARCHITECTURE STREQUAL "arm" OR VCPKG_TARGET_ARCHITECTURE STREQUAL "arm64"))
   list(APPEND extra_config -DLLFIO_ASSUME_CROSS_COMPILING=On)
 endif()
 
-vcpkg_configure_cmake(
+vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
-    PREFER_NINJA
     OPTIONS
         -DCMAKE_CXX_STANDARD=20
         -DPROJECT_IS_DEPENDENCY=On
-        -Dquickcpplib_FOUND=1
-        -Doutcome_FOUND=1
+        -Dquickcpplib_DIR=${CURRENT_INSTALLED_DIR}/share/ned14-internal-quickcpplib
         ${LLFIO_FEATURE_OPTIONS}
         -DLLFIO_ENABLE_DEPENDENCY_SMOKE_TEST=ON  # Leave this always on to test everything compiles
         -DCMAKE_DISABLE_FIND_PACKAGE_Git=ON
         ${extra_config}
 )
 
-# LLFIO install assumes that the static library is always built
-vcpkg_build_cmake(TARGET _sl)
-if(VCPKG_LIBRARY_LINKAGE STREQUAL "dynamic")
-    vcpkg_build_cmake(TARGET _dl)
-endif()
+# LLFIO install requires that the static library is always built;
+# in addition to that the dynamic library would always be build during install anyways
+vcpkg_cmake_build(TARGET _sl LOGFILE_BASE build-sl)
+vcpkg_cmake_build(TARGET _dl LOGFILE_BASE build-dl)
 
 if("run-tests" IN_LIST FEATURES)
-    vcpkg_build_cmake(TARGET test)
+    vcpkg_cmake_build(TARGET test LOGFILE_BASE test)
 endif()
 
-vcpkg_install_cmake()
+vcpkg_cmake_install()
 
-vcpkg_fixup_cmake_targets(CONFIG_PATH lib/cmake/llfio)
+vcpkg_cmake_config_fixup(CONFIG_PATH lib/cmake/llfio)
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL "static")
     set(EXPORTS_PATH "${CURRENT_PACKAGES_DIR}/share/${PORT}/llfioExports.cmake")
