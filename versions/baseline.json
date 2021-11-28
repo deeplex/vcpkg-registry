@@ -28,6 +28,10 @@
             "baseline": "2.0-20210922",
             "port-version": 6
         },
+        "status-code": {
+            "version-string": "1.0.0-ab3cd821",
+            "port-version": 2
+        },
         "vefs": {
             "baseline": "0.3.2",
             "port-version": 0
