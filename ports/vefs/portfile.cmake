@@ -2,7 +2,7 @@
 vcpkg_from_git(
     OUT_SOURCE_PATH SOURCE_PATH
     URL ssh://git@mdk-bs-dev02.test-server.ag:2224/native/vefs.git
-    REF 8afee66ff0e463e2bfdb2d6efb2c201f014d9c01 # v0.4.0-alpha.2
+    REF 0ddac96b5a0327d006d08ae09dfaa89a0ee69673 # v0.4.0-alpha.2
     HEAD_REF develop
 )
 vcpkg_configure_cmake(
