@@ -1,7 +1,6 @@
 {
     "name": "vefs",
-    "version-semver": "0.4.0-alpha.2",
-    "port-version": 1,
+    "version-semver": "0.4.0-alpha.3",
     "homepage": "",
     "description": "",
     "dependencies": [
