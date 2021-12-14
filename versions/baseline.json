@@ -37,7 +37,7 @@
             "port-version": 2
         },
         "vefs": {
-            "baseline": "0.4.0-alpha.4",
+            "baseline": "0.4.0-alpha.5",
             "port-version": 0
         }
     }
