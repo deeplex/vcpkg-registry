@@ -6,7 +6,7 @@
         },
         "boringssl": {
             "baseline": "2022-02-14",
-            "port-version": 0
+            "port-version": 1
         },
         "deeppack": {
             "baseline": "2021-10-07",

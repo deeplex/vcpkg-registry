@@ -1,6 +1,7 @@
 {
     "name": "boringssl",
     "version-date": "2022-02-14",
+    "port-version": 1,
     "description": "googles openssl fork",
     "homepage": "https://boringssl.googlesource.com/boringssl/",
     "dependencies": [

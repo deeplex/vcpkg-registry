@@ -16,6 +16,7 @@ vcpkg_from_git(
     REF 3a667d10e94186fd503966f5638e134fe9fb4080
     PATCHES
         cmake.patch
+        warnings.patch
 )
 
 vcpkg_cmake_configure(
