@@ -13,20 +13,17 @@ add_program_env(NASM)
 vcpkg_from_git(
     OUT_SOURCE_PATH SOURCE_PATH
     URL https://boringssl.googlesource.com/boringssl
-    REF 8e8f250422663106d478f6927beefba289a95b37
-    SHA512 4d544d84770c9b5b889ec6c76e24b6bcfea7316b856fe47e86de0486aeb6d821854136da0c16d6970f42ee262f75de56b5541af9e22565b0bf5c38edc855483b
+    REF 3a667d10e94186fd503966f5638e134fe9fb4080
     PATCHES
         cmake.patch
-        vs16.6_warnings.patch
 )
 
-vcpkg_configure_cmake(
+vcpkg_cmake_configure(
     SOURCE_PATH ${SOURCE_PATH}
-    PREFER_NINJA
 )
 
-vcpkg_install_cmake()
-vcpkg_fixup_cmake_targets(CONFIG_PATH cmake)
+vcpkg_cmake_install()
+vcpkg_cmake_config_fixup()
 file(REMOVE_RECURSE ${CURRENT_PACKAGES_DIR}/debug/include)
 
 file(INSTALL ${SOURCE_PATH}/LICENSE DESTINATION ${CURRENT_PACKAGES_DIR}/share/boringssl RENAME copyright)
