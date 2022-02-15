@@ -1,6 +1,0 @@
-{
-    "name": "gtest",
-    "version-date": "2020-09-30",
-    "description": "GoogleTest and GoogleMock testing frameworks.",
-    "homepage": "https://github.com/google/googletest"
-}

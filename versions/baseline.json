@@ -16,17 +16,9 @@
             "baseline": "2021-10-04",
             "port-version": 0
         },
-        "gtest": {
-            "baseline": "2020-09-30",
-            "port-version": 0
-        },
         "libb2": {
             "baseline": "0.98.0",
             "port-version": 0
-        },
-        "llfio": {
-            "baseline": "2.0-20210922",
-            "port-version": 6
         },
         "outcome": {
             "baseline": "2.2.2-20210922",
@@ -35,10 +27,6 @@
         "status-code": {
             "baseline": "1.0.0-ab3cd821",
             "port-version": 2
-        },
-        "vefs": {
-            "baseline": "0.4.0-alpha.5",
-            "port-version": 0
         }
     }
 }
