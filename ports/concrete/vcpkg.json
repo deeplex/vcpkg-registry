@@ -1,0 +1,16 @@
+{
+    "name": "concrete",
+    "version-semver": "0.0.0-alpha.1",
+    "homepage": "https://docs.deeplex.net/concrete/master",
+    "license": "BSL-1.0",
+    "dependencies": [
+        {
+          "name": "vcpkg-cmake",
+          "host": true
+        },
+        {
+          "name": "vcpkg-cmake-config",
+          "host": true
+        }
+    ]
+}
