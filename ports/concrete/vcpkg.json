@@ -1,7 +1,7 @@
 {
     "name": "concrete",
     "version-semver": "0.0.0-alpha.1",
-    "port-version": 1,
+    "port-version": 2,
     "homepage": "https://docs.deeplex.net/concrete/master",
     "license": "BSL-1.0",
     "dependencies": [

@@ -1,7 +1,7 @@
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO deeplex-net/concrete
+    REPO deeplex/concrete
     REF 9ce255f9d1b3b01deb6d82246711aa2e54774e22
     SHA512 6ed241c52374699f3a00dbc99dacd3834d3a196db8e92c531fa6e7006a53e44c5a6b9f193e3f5968bd2157576bdec0c6472c3b144122c1e4dbd3a83e9e8032cd
 )
