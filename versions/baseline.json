@@ -14,7 +14,7 @@
         },
         "deeppack": {
             "baseline": "2021-10-07",
-            "port-version": 0
+            "port-version": 1
         },
         "ftxui": {
             "baseline": "2021-10-04",

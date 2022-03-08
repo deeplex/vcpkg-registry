@@ -1,7 +1,7 @@
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO "deeplex-net/deeppack"
+    REPO "deeplex/deeppack"
     REF ba39c493442238484a2efca6d364be23ffab2c8f
     SHA512 5f858169a01649cd7cfd111ad815f1a075438bfd0002daf3dd2b597063a4c830209877653eb860f820c58c6569bb6b55ab95fe4ffb547f2a3588193c5cb83e7c
     HEAD_REF master
