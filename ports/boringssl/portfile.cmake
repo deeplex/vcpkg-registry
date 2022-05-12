@@ -13,7 +13,7 @@ add_program_env(NASM)
 vcpkg_from_git(
     OUT_SOURCE_PATH SOURCE_PATH
     URL https://boringssl.googlesource.com/boringssl
-    REF 3a667d10e94186fd503966f5638e134fe9fb4080
+    REF 3a667d10e94186fd503966f5638e134fe9fb4080 # tracks chromium-stable
     PATCHES
         cmake.patch
         warnings.patch

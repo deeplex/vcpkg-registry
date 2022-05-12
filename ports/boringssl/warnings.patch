@@ -2,10 +2,11 @@ diff --git a/CMakeLists.txt b/CMakeLists.txt
 index 4dbd96d..0bcb987 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -224,6 +224,8 @@ elseif(MSVC)
+@@ -224,6 +224,9 @@ elseif(MSVC)
        "C5027" # move assignment operator was implicitly defined as deleted
        "C5045" # Compiler will insert Spectre mitigation for memory load if
                # /Qspectre switch specified
++      "C4191"
 +      "C4701"
 +      "C4703"
        )
