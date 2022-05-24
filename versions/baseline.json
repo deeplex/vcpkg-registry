@@ -29,7 +29,7 @@
             "port-version": 1
         },
         "status-code": {
-            "baseline": "1.0.0-20220401",
+            "baseline": "1.0.0-20220524",
             "port-version": 0
         }
     }

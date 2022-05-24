@@ -5,26 +5,16 @@ vcpkg_from_github(
     SHA512 f7965bfc702473be09a1d29da7e4c6241e481e609d57ff0ad989db7757e2d77b2b6fd1a89882961e8f16c405df97403710f1f3a3d3fd62341703b573d9035726
     HEAD_REF master
     PATCHES
-        no-test.patch
-        cxx_feature_level.patch
+        no-target-sources.patch
 )
 
 # Because status-code's deployed files are header-only, the debug build is not necessary
 set(VCPKG_BUILD_TYPE release)
 
-vcpkg_check_features(
-    OUT_FEATURE_OPTIONS FEATURE_OPTIONS
-    FEATURES
-        cxx14 STATUS_CODE_REQUIRE_CXX14
-        cxx20 STATUS_CODE_REQUIRE_CXX20
-)
-
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
     OPTIONS
-        ${FEATURE_OPTIONS}
-    MAYBE_UNUSED_VARIABLES
-        STATUS_CODE_REQUIRE_CXX14 # not evaluated in case cxx20 is requested
+        -DPROJECT_IS_DEPENDENCY=ON
 )
 
 vcpkg_cmake_install()
