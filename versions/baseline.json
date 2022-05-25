@@ -25,8 +25,8 @@
             "port-version": 0
         },
         "outcome": {
-            "baseline": "2.2.2-20210922",
-            "port-version": 1
+            "baseline": "2.2.3-20220525",
+            "port-version": 0
         },
         "status-code": {
             "baseline": "1.0.0-20220524",
