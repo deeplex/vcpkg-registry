@@ -2,11 +2,11 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO deeplex/concrete
-    REF v0.0.0-alpha.2
-    SHA512 6ce6d88eb9d2d878c022f829180ec67b97c4deb218ca3990a59b59c9f29ed583857208b934e233edf5070337038143f46552462d0393ba18885b9cea13142e59
+    REF 8129262bdfa0048400946a5e9e8639f4a6f2bd61
+    SHA512 9d633ea5c135f132289e8ca7bf88b232b8bd4305f2a7512d3695638c4cac5926ed305d2b7a2e8e913df89dd765edc7db0388f00173a17607467185300eae8bc8
 )
 
-# Because status-code's deployed files are header-only, the debug build is not necessary
+# Because concrete is a header-only library, the debug build is not necessary
 set(VCPKG_BUILD_TYPE release)
 
 vcpkg_cmake_configure(

@@ -1,6 +1,6 @@
 {
     "name": "concrete",
-    "version-semver": "0.0.0-alpha.2",
+    "version-semver": "0.0.0-alpha.3",
     "homepage": "https://docs.deeplex.net/concrete/master",
     "license": "BSL-1.0",
     "dependencies": [
