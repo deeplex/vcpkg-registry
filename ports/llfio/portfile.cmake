@@ -1,4 +1,4 @@
-if (NOT "cxx20" IN_LIST FEATURES)
+if ("polyfill-cxx20" IN_LIST FEATURES)
     message(WARNING [=[
     LLFIO depends on Outcome which depends on QuickCppLib which uses the vcpkg versions of gsl-lite and byte-lite, rather than the versions tested by QuickCppLib's, Outcome's and LLFIO's CI. It is not guaranteed to work with other versions, with failures experienced in the past up-to-and-including runtime crashes. See the warning message from QuickCppLib for how you can pin the versions of those dependencies in your manifest file to those with which QuickCppLib was tested. Do not report issues to upstream without first pinning the versions as QuickCppLib was tested against.
     ]=])
@@ -8,11 +8,14 @@ endif()
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO ned14/llfio
-    REF 28ed4621f3233fbfd24d437519f3503d06dba3e0
-    SHA512 a8c9682ef660bc99c9a9311208bbda52cef2bd3e2bbfeb0c62fdbc89015c9718579915df2ecc31305bd82b382f5c8c59c7f6dc83117928b89bcd45a809b2c3d7
+    REF 4a117d683b82a2e3e456c2ecc47a99c8406280fa
+    SHA512 7880356dbff10664a146a09558ba15f95cf6883ebe8e0af3d392fbd6f86f3455b9b5c8b6c5c1281c8fca93c358fcafd3468ab575eee0b483ec5b136ca59eef04
     HEAD_REF develop
     PATCHES
-        fix-status-code-include.patch
+        # https://github.com/ned14/llfio/issues/83
+        # To be removed on next update
+        issue-83-fix-backport.patch
+        fix-vendored-status-code-include.patch
 )
 
 vcpkg_from_github(
@@ -40,9 +43,9 @@ if(VCPKG_TARGET_IS_WINDOWS AND (VCPKG_TARGET_ARCHITECTURE STREQUAL "arm" OR VCPK
 endif()
 # setting CMAKE_CXX_STANDARD here to prevent llfio from messing with compiler flags
 # the cmake package config requires said C++ standard target transitively via quickcpplib
-if ("cxx20" IN_LIST FEATURES)
+if (NOT "polyfill-cxx20" IN_LIST FEATURES)
     list(APPEND extra_config -DCMAKE_CXX_STANDARD=20)
-elseif("cxx17" IN_LIST FEATURES)
+elseif(NOT "polyfill-cxx17" IN_LIST FEATURES)
     list(APPEND extra_config -DCMAKE_CXX_STANDARD=17)
 endif()
 
@@ -69,7 +72,7 @@ vcpkg_cmake_configure(
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL "dynamic")
     vcpkg_cmake_build(TARGET install.dl)
-else(VCPKG_LIBRARY_LINKAGE STREQUAL "static")
+elseif(VCPKG_LIBRARY_LINKAGE STREQUAL "static")
     vcpkg_cmake_build(TARGET install.sl)
 endif()
 

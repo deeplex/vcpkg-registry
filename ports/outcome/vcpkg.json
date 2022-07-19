@@ -1,8 +1,9 @@
 {
   "name": "outcome",
-  "version-string": "2.2.3-20220525",
+  "version-semver": "2.2.3",
   "description": "Provides very lightweight outcome<T> and result<T> (non-Boost edition)",
   "homepage": "https://github.com/ned14/outcome",
+  "license": "Apache-2.0 OR BSL-1.0",
   "supports": "!uwp",
   "dependencies": [
     "ned14-internal-quickcpplib",
@@ -17,33 +18,33 @@
     }
   ],
   "features": {
-    "cxx17": {
-      "description": "Do not polyfill C++17 entities",
+    "polyfill-cxx17": {
+      "description": "Polyfill C++17 entities",
       "dependencies": [
         {
           "name": "ned14-internal-quickcpplib",
           "default-features": false,
           "features": [
-            "cxx17"
+            "polyfill-cxx17"
           ]
-        }
-      ]
-    },
-    "cxx20": {
-      "description": "Do not polyfill C++20 entities",
-      "dependencies": [
+        },
         {
           "name": "outcome",
           "default-features": false,
           "features": [
-            "cxx17"
+            "polyfill-cxx20"
           ]
-        },
+        }
+      ]
+    },
+    "polyfill-cxx20": {
+      "description": "Polyfill C++20 entities",
+      "dependencies": [
         {
           "name": "ned14-internal-quickcpplib",
           "default-features": false,
           "features": [
-            "cxx20"
+            "polyfill-cxx20"
           ]
         }
       ]

@@ -1,11 +1,11 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO ned14/status-code
-    REF 42d3afaa388ae966938f558d9e00e390a2192fa8
-    SHA512 f7965bfc702473be09a1d29da7e4c6241e481e609d57ff0ad989db7757e2d77b2b6fd1a89882961e8f16c405df97403710f1f3a3d3fd62341703b573d9035726
+    REF 60ec9e46916e5170051293e7925729ba88951934
+    SHA512 f7a9448419f8e9228cd29c3b2e9268712de985675acea3b51f742ce88e524e7f51ccea7e08c89bf4e6d38eb1131416af052192531c168eed1f45e7eeda20fed6
     HEAD_REF master
     PATCHES
-        no-target-sources.patch
+        no-target-sources.patch # see https://github.com/ned14/status-code/issues/43
 )
 
 # Because status-code's deployed files are header-only, the debug build is not necessary

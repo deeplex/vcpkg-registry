@@ -15,7 +15,7 @@
 # the exact copy of those third party libraries known to
 # have passed Outcome's CI process.
 
-if (NOT "cxx20" IN_LIST FEATURES)
+if ("polyfill-cxx20" IN_LIST FEATURES)
     message(WARNING [=[
     Outcome depends on QuickCppLib which uses the vcpkg versions of gsl-lite and byte-lite, rather than the versions tested by QuickCppLib's and Outcome's CI. It is not guaranteed to work with other versions, with failures experienced in the past up-to-and-including runtime crashes. See the warning message from QuickCppLib for how you can pin the versions of those dependencies in your manifest file to those with which QuickCppLib was tested. Do not report issues to upstream without first pinning the versions as QuickCppLib was tested against.
     ]=])
@@ -24,23 +24,33 @@ endif()
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO ned14/outcome
-    REF 2d2c444e36c2e8dfacfa758d3f3ffb180d9d27b2
-    SHA512 e25d91145cb73aa8f110b2e254c36961ea1e7d36b3456827b217e69ee1c6f485d689287e21f1ef657a0a0abdfbfc52ddb0f607bd38beca0de05a04d693a43dc7
+    REF 147ec1e8673c34cb7cf431dfdbf211d8072d7656
+    SHA512 139723be3618b9f3c26c7da6fa5682e6810fc93192bd8752fb7a39378fa1bee8c14b8077d30f71852995bc323dd7beb6676635991995577797b054913cb10231
     HEAD_REF develop
     PATCHES
         fix-find-library.patch
         fix-status-code-include.patch
 )
 
+set(extra_config)
 # setting CMAKE_CXX_STANDARD here to prevent outcome from messing with compiler flags
 # the cmake package config requires said C++ standard target transitively via quickcpplib
-if ("cxx20" IN_LIST FEATURES)
+if (NOT "polyfill-cxx20" IN_LIST FEATURES)
     list(APPEND extra_config -DCMAKE_CXX_STANDARD=20)
-elseif("cxx17" IN_LIST FEATURES)
+elseif(NOT "polyfill-cxx17" IN_LIST FEATURES)
     list(APPEND extra_config -DCMAKE_CXX_STANDARD=17)
 endif()
 
-# Because status-code's deployed files are header-only, the debug build is not necessary
+# quickcpplib parses CMAKE_MSVC_RUNTIME_LIBRARY and cannot support the default crt linkage generator expression from vcpkg
+if(VCPKG_TARGET_IS_WINDOWS)
+    if(VCPKG_CRT_LINKAGE STREQUAL "dynamic")
+        list(APPEND extra_config -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded$$<$$<CONFIG:Debug>:Debug>DLL)
+    else()
+        list(APPEND extra_config -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded$$<$$<CONFIG:Debug>:Debug>)
+    endif()
+endif()
+
+# Because outcome's deployed files are header-only, the debug build is not necessary
 set(VCPKG_BUILD_TYPE release)
 
 # Use Outcome's own build process, skipping examples and tests.
