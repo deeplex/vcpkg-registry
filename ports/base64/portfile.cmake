@@ -1,22 +1,18 @@
-
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO "BurningEnlightenment/base64-cmake"
-    REF 7170a90fe2065b3aed042ebe3f51fff7da73dfec
-    SHA512 6a142e46bea2b68366138b0439e2effb87b4d1fbe51444ba6373553915e27ade6f6ed8fa19f3b509dfee196220e89a2e6a4c1d7044f10e5793ac00b1c227f975
-    PATCHES
+    REPO aklomp/base64
+    REF 9ae5ad37720bc94e90719566de48e2444b96b642
+    SHA512 cbfa5faf3693603708a49744db7d1986aeb595e27f106e55a85213d808156ec89b69b06486c7add3514799ec1f51ccac02c47e5d50810f5b770945ad007c1a0a
+    HEAD_REF master
 )
 
-vcpkg_configure_cmake(
-    SOURCE_PATH ${SOURCE_PATH}
-    PREFER_NINJA
+vcpkg_cmake_configure(SOURCE_PATH "${SOURCE_PATH}"
     OPTIONS
-     -DBASE64_BUILD_TESTS=OFF
+        -DBASE64_BUILD_CLI=OFF
+        "-DCMAKE_INSTALL_INCLUDEDIR=${CURRENT_PACKAGES_DIR}/include"
 )
+vcpkg_cmake_install()
 
-vcpkg_install_cmake()
+vcpkg_cmake_config_fixup(CONFIG_PATH lib/cmake/base64)
 
-vcpkg_fixup_cmake_targets()
-file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
-
-file(INSTALL ${SOURCE_PATH}/LICENSE DESTINATION ${CURRENT_PACKAGES_DIR}/share/base64 RENAME copyright)
+vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")

@@ -1,7 +1,7 @@
 {
     "default": {
         "base64": {
-            "baseline": "2021-07-22",
+            "baseline": "0.5.0",
             "port-version": 0
         },
         "concrete": {
