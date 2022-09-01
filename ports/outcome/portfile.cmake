@@ -24,31 +24,13 @@ endif()
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO ned14/outcome
-    REF 147ec1e8673c34cb7cf431dfdbf211d8072d7656
-    SHA512 139723be3618b9f3c26c7da6fa5682e6810fc93192bd8752fb7a39378fa1bee8c14b8077d30f71852995bc323dd7beb6676635991995577797b054913cb10231
+    REF ad1823420c3de4e6aa28e6817c39e62f58b3917a
+    SHA512 2c1e9b6de29832f3160c9b5863f18c0035a6ed5f2f16185d38e2e1977d2eef81a437d52e5a6f99ecd98d9baff056d592b7d53a986ef434b74300a9b5a0df9b04
     HEAD_REF develop
     PATCHES
-        fix-find-library.patch
-        fix-status-code-include.patch
 )
 
 set(extra_config)
-# setting CMAKE_CXX_STANDARD here to prevent outcome from messing with compiler flags
-# the cmake package config requires said C++ standard target transitively via quickcpplib
-if (NOT "polyfill-cxx20" IN_LIST FEATURES)
-    list(APPEND extra_config -DCMAKE_CXX_STANDARD=20)
-elseif(NOT "polyfill-cxx17" IN_LIST FEATURES)
-    list(APPEND extra_config -DCMAKE_CXX_STANDARD=17)
-endif()
-
-# quickcpplib parses CMAKE_MSVC_RUNTIME_LIBRARY and cannot support the default crt linkage generator expression from vcpkg
-if(VCPKG_TARGET_IS_WINDOWS)
-    if(VCPKG_CRT_LINKAGE STREQUAL "dynamic")
-        list(APPEND extra_config -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded$$<$$<CONFIG:Debug>:Debug>DLL)
-    else()
-        list(APPEND extra_config -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded$$<$$<CONFIG:Debug>:Debug>)
-    endif()
-endif()
 
 # Because outcome's deployed files are header-only, the debug build is not necessary
 set(VCPKG_BUILD_TYPE release)
@@ -77,4 +59,4 @@ vcpkg_cmake_config_fixup(CONFIG_PATH lib/cmake/outcome)
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/lib")
 
 file(INSTALL "${CURRENT_PORT_DIR}/usage" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}")
-file(INSTALL "${SOURCE_PATH}/Licence.txt" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}" RENAME copyright)
+vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/Licence.txt")

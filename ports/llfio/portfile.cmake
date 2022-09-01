@@ -8,14 +8,11 @@ endif()
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO ned14/llfio
-    REF 4a117d683b82a2e3e456c2ecc47a99c8406280fa
-    SHA512 7880356dbff10664a146a09558ba15f95cf6883ebe8e0af3d392fbd6f86f3455b9b5c8b6c5c1281c8fca93c358fcafd3468ab575eee0b483ec5b136ca59eef04
+    REF 7986b92283e2d92991fbbc77850faf6025932dc4
+    SHA512 4e8d461390edc0a7c5bc6b47053783bb417b3aae9f85c210dc0500fc994f9961cc6decc241337278919c64490438037285532e62a0ea8b3c13254f6e6656e380
     HEAD_REF develop
     PATCHES
-        # https://github.com/ned14/llfio/issues/83
-        # To be removed on next update
-        issue-83-fix-backport.patch
-        fix-vendored-status-code-include.patch
+        msvc-list-copy-fix.patch
 )
 
 vcpkg_from_github(
@@ -43,9 +40,9 @@ if(VCPKG_TARGET_IS_WINDOWS AND (VCPKG_TARGET_ARCHITECTURE STREQUAL "arm" OR VCPK
 endif()
 # setting CMAKE_CXX_STANDARD here to prevent llfio from messing with compiler flags
 # the cmake package config requires said C++ standard target transitively via quickcpplib
-if (NOT "polyfill-cxx20" IN_LIST FEATURES)
+if ("cxx20" IN_LIST FEATURES)
     list(APPEND extra_config -DCMAKE_CXX_STANDARD=20)
-elseif(NOT "polyfill-cxx17" IN_LIST FEATURES)
+elseif("cxx17" IN_LIST FEATURES)
     list(APPEND extra_config -DCMAKE_CXX_STANDARD=17)
 endif()
 
@@ -64,7 +61,7 @@ vcpkg_cmake_configure(
         -DPROJECT_IS_DEPENDENCY=On
         -Dquickcpplib_DIR=${CURRENT_INSTALLED_DIR}/share/quickcpplib
         ${LLFIO_FEATURE_OPTIONS}
-        -DLLFIO_FORCE_OPENSSL_OFF=ON
+        -DLLFIO_FORCE_NETWORKING_OFF=ON
         -DLLFIO_ENABLE_DEPENDENCY_SMOKE_TEST=ON  # Leave this always on to test everything compiles
         -DCMAKE_DISABLE_FIND_PACKAGE_Git=ON
         ${extra_config}
@@ -85,8 +82,8 @@ vcpkg_cmake_config_fixup(CONFIG_PATH lib/cmake/llfio)
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include" "${CURRENT_PACKAGES_DIR}/debug/share")
 
 if("status-code" IN_LIST FEATURES)
-    file(INSTALL "${CURRENT_PORT_DIR}/usage-status-code-${VCPKG_LIBRARY_LINKAGE}" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}" RENAME usage)
+    file(INSTALL "${CURRENT_PORT_DIR}/usage-status-code-${VCPKG_LIBRARY_LINKAGE}" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}")
 else()
-    file(INSTALL "${CURRENT_PORT_DIR}/usage-error-code-${VCPKG_LIBRARY_LINKAGE}" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}" RENAME usage)
+    file(INSTALL "${CURRENT_PORT_DIR}/usage-error-code-${VCPKG_LIBRARY_LINKAGE}" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}")
 endif()
-file(INSTALL "${SOURCE_PATH}/Licence.txt" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}" RENAME copyright)
+vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/Licence.txt")
