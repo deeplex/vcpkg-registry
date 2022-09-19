@@ -1,9 +1,10 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO ned14/status-code
-    REF b4caedb9fd81ce4407ea57911222f77035f877a4
-    SHA512 36b92de751f12dcf3747df8f0d8ff70dfe40ed7be538cdeb988c78858c37a648a2a9a1426cd9b20e98ae0e1b99cb2255dd7f7ef53db5d74b9eadd4969b64fa67
+    REF 8d5e162c9b02169fc6c95a79c54d1213027187b7
+    SHA512 0af5a93a5015e070c2db8689f9a560c4a739ea40df3d7fee79f461d0274d7e79d27732cd339cb36e3af969adee0215c827b1fe63c177e8d7853c3fbe237f839f
     HEAD_REF master
+    PATCHES
 )
 
 # Because status-code's deployed files are header-only, the debug build is not necessary
@@ -18,6 +19,8 @@ vcpkg_cmake_configure(
 vcpkg_cmake_install()
 
 vcpkg_cmake_config_fixup(CONFIG_PATH lib/cmake/status-code)
+
+file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/lib")
 
 file(INSTALL "${CURRENT_PORT_DIR}/usage" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}")
 vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/Licence.txt")
