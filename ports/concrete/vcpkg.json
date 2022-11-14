@@ -1,9 +1,10 @@
 {
     "name": "concrete",
-    "version-semver": "0.0.0-alpha.5",
+    "version-semver": "0.0.0-alpha.6",
     "homepage": "https://docs.deeplex.net/concrete",
     "license": "BSL-1.0",
     "dependencies": [
+        "status-code",
         {
           "name": "vcpkg-cmake",
           "host": true
