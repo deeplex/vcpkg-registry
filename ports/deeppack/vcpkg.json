@@ -1,12 +1,23 @@
 {
     "name": "deeppack",
-    "version-semver": "0.0.0-alpha.1",
+    "version-semver": "0.1.0-alpha.2",
     "homepage": "https://github.com/deeplex/deeppack",
+    "supports": "static",
     "dependencies": [
-        "boost-container",
         "boost-endian",
+        "boost-container",
+        "boost-mp11",
         "concrete",
         "fmt",
-        "outcome"
+        "outcome",
+        "status-code",
+        {
+          "name": "vcpkg-cmake",
+          "host": true
+        },
+        {
+          "name": "vcpkg-cmake-config",
+          "host": true
+        }
     ]
 }
