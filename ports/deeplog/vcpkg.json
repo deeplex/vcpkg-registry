@@ -1,0 +1,32 @@
+{
+  "name": "deeplog",
+  "version-semver": "0.0.0-alpha.1",
+  "homepage": "https://github.com/deeplex/deeplog",
+  "supports": "static",
+  "dependencies": [
+    "boost-config",
+    "boost-mp11",
+    "boost-predef",
+    "boost-unordered",
+    "boost-variant2",
+    "concrete",
+    "deeppack",
+    "fmt",
+    "ftxui",
+    {
+      "name": "llfio",
+      "features": [
+        "status-code"
+      ]
+    },
+    "outcome",
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
+    }
+  ]
+}
