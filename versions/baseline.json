@@ -12,32 +12,12 @@
             "baseline": "0.1.0-alpha.6",
             "port-version": 1
         },
-        "ftxui": {
-            "baseline": "2021-10-04",
-            "port-version": 0
-        },
         "libb2": {
             "baseline": "0.98.0",
             "port-version": 0
         },
         "libcuckoo": {
             "baseline": "0.3-20220525",
-            "port-version": 0
-        },
-        "llfio": {
-            "baseline": "2022-09-18",
-            "port-version": 0
-        },
-        "ned14-internal-quickcpplib": {
-            "baseline": "2022-09-08",
-            "port-version": 1
-        },
-        "outcome": {
-            "baseline": "2.2.4",
-            "port-version": 1
-        },
-        "status-code": {
-            "baseline": "2022-09-08",
             "port-version": 0
         }
     }
