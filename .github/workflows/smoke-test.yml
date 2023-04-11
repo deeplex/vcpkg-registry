@@ -1,0 +1,70 @@
+name: Install Smoke Test
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  install:
+    name: ${{ matrix.os }}-${{ matrix.compiler }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        baseline: [69efe9cc2df0015f0bb2d37d55acde4a75c9a25b]
+        os: [ubuntu-22.04, windows-2022]
+        compiler: [gcc, msvc]
+        exclude:
+          - os: windows-2022
+            compiler: gcc
+          - os: ubuntu-22.04
+            compiler: msvc
+        include:
+          - os: ubuntu-22.04
+            triplet: x64-linux
+          - os: windows-2022
+            triplet: x64-windows-static
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Generate vcpkg-configuration
+        shell: bash
+        run: |
+          shopt -s nullglob
+          cd '${{ github.workspace }}'
+          pushd ports
+          ports=(*)
+          popd
+          jports=$(jq --compact-output --null-input '$ARGS.positional' --args -- "${ports[@]}")
+          mkdir test
+          echo '{
+            "default-registry": {
+              "kind": "builtin",
+              "baseline": "${{ matrix.baseline }}"
+            },
+            "registries": [
+              {
+                "kind": "git",
+                "repository": ${{ toJSON(github.workspace) }},
+                "baseline": "${{ github.sha }}",
+                "packages": '"$jports"'
+              }
+            ]
+          }' > test/vcpkg-configuration.json
+          echo '{
+            "name": "registry-test",
+            "version": "0.0.0",
+            "dependencies": '"$jports"'
+          }' > test/vcpkg.json
+
+      - uses: lukka/run-vcpkg@v11
+        env:
+          VCPKG_DEFAULT_TRIPLET: ${{ matrix.triplet }}
+        with:
+          vcpkgDirectory: '${{ github.workspace }}/vcpkg'
+          vcpkgGitCommitId: '${{ matrix.baseline }}'
+          vcpkgJsonGlob: 'test/vcpkg.json'
+          runVcpkgInstall: true
+
