@@ -1,7 +1,7 @@
 {
   "name": "deeppack",
   "version-semver": "0.1.0-alpha.6",
-  "port-version": 1,
+  "port-version": 2,
   "homepage": "https://github.com/deeplex/deeppack",
   "supports": "static",
   "dependencies": [
