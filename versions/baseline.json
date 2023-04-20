@@ -4,6 +4,10 @@
             "baseline": "0.5.0",
             "port-version": 0
         },
+        "boringssl": {
+            "baseline": "2023-04-20",
+            "port-version": 0
+        },
         "concrete": {
             "baseline": "0.0.0-alpha.9",
             "port-version": 1
