@@ -27,6 +27,15 @@ jobs:
             triplet: x64-windows-static
 
     steps:
+      - uses: actions/setup-go@v4
+        if: ${{ !startsWith(matrix.os, 'windows-') }}
+        with:
+          go-version: '1.20.3'
+      - name: Install NASM (on Ubuntu)
+        if: ${{ startsWith(matrix.os, 'ubuntu-') }}
+        run: |
+          sudo apt-get -qq -y install nasm
+
       - uses: actions/checkout@v3
 
       - name: Generate vcpkg-configuration
