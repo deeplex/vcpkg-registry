@@ -13,8 +13,8 @@
             "port-version": 1
         },
         "deeppack": {
-            "baseline": "0.1.0-alpha.6",
-            "port-version": 2
+            "baseline": "0.1.0-alpha.7",
+            "port-version": 0
         },
         "libb2": {
             "baseline": "0.98.0",
