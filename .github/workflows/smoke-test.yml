@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        baseline: [69efe9cc2df0015f0bb2d37d55acde4a75c9a25b]
+        baseline: [f6a5d4e8eb7476b8d7fc12a56dff300c1c986131]
         os: [ubuntu-22.04, windows-2022]
         compiler: [gcc, msvc]
         exclude:
