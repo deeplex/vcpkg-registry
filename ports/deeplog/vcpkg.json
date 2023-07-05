@@ -1,7 +1,6 @@
 {
   "name": "deeplog",
-  "version-semver": "0.0.0-alpha.1",
-  "port-version": 1,
+  "version-semver": "0.0.0-alpha.2",
   "homepage": "https://github.com/deeplex/deeplog",
   "supports": "static",
   "dependencies": [

@@ -9,8 +9,8 @@
             "port-version": 1
         },
         "deeplog": {
-            "baseline": "0.0.0-alpha.1",
-            "port-version": 1
+            "baseline": "0.0.0-alpha.2",
+            "port-version": 0
         },
         "deeppack": {
             "baseline": "0.1.0-alpha.7",
