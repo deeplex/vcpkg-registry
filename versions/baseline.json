@@ -5,8 +5,8 @@
             "port-version": 0
         },
         "concrete": {
-            "baseline": "0.0.0-alpha.9",
-            "port-version": 1
+            "baseline": "0.0.0-alpha.10",
+            "port-version": 0
         },
         "deeplog": {
             "baseline": "0.0.0-alpha.6",
