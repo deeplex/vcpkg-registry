@@ -3,7 +3,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO "deeplex/deeppack"
     REF "v${VERSION}"
-    SHA512 d94f188ee3507091bba205185a92bb49f52ddaf3633614db95b8358c34cc5b994ea7882a8e52c07e0c93de6cfbdfc38b6bb1923b15eec3f60333e087843fb1ba
+    SHA512 11b7c64466194bdbb267091edccfea838f1f94efa50a9237b579ffa8bbdad8fb885f93c054314f24290fe29c485088848d2680eec96d62fa822ae7b80d8af4cb
 )
 
 vcpkg_cmake_configure(
