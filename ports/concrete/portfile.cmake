@@ -3,7 +3,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO "deeplex/concrete"
     REF "v${VERSION}"
-    SHA512 e0be04bd6f501c81425025f0f682b0a7ff03f987c11d98de85a777817696f294f4a4cff0bf8e8a3fb1a5186586c0e9627c9e932d4b21362fd6efede86e3ebe2f
+    SHA512 4479ce1240de45825073528b4b9dc949de8504fd318791f533582a0ecc5a606b0ae144007b8a13cb20bd054c6da3e766f0ef84669f6c0c33b884b4331a35ad48
 )
 
 # Because concrete is a header-only library, the debug build is not necessary
