@@ -1,28 +1,28 @@
 {
-    "default": {
-        "base64": {
-            "baseline": "0.5.0",
-            "port-version": 0
-        },
-        "concrete": {
-            "baseline": "0.0.0-alpha.10",
-            "port-version": 0
-        },
-        "deeplog": {
-            "baseline": "0.0.0-beta.4",
-            "port-version": 0
-        },
-        "deeppack": {
-            "baseline": "0.1.0-alpha.10",
-            "port-version": 0
-        },
-        "libb2": {
-            "baseline": "0.98.0",
-            "port-version": 0
-        },
-        "libcuckoo": {
-            "baseline": "0.3-20220525",
-            "port-version": 0
-        }
+  "default": {
+    "base64": {
+      "baseline": "0.5.0",
+      "port-version": 0
+    },
+    "concrete": {
+      "baseline": "0.0.0-alpha.11",
+      "port-version": 0
+    },
+    "deeplog": {
+      "baseline": "0.0.0-beta.5",
+      "port-version": 0
+    },
+    "deeppack": {
+      "baseline": "0.1.0-alpha.10",
+      "port-version": 0
+    },
+    "libb2": {
+      "baseline": "0.98.0",
+      "port-version": 1
+    },
+    "libcuckoo": {
+      "baseline": "0.3.20220525",
+      "port-version": 0
     }
+  }
 }
