@@ -1,6 +1,6 @@
 {
   "name": "libcuckoo",
-  "version-string": "0.3-20220525",
+  "version": "0.3.20220525",
   "description": "A high-performance, concurrent hash table",
   "homepage": "https://github.com/efficient/libcuckoo",
   "dependencies": [
