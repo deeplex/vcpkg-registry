@@ -18,7 +18,7 @@
     },
     "libb2": {
       "baseline": "0.98.0",
-      "port-version": 0
+      "port-version": 1
     },
     "libcuckoo": {
       "baseline": "0.3-20220525",
