@@ -1,6 +1,6 @@
 {
   "name": "Deeplex | vcpkg",
-  "image": "mcr.microsoft.com/devcontainers/base:alpine-3.20",
+  "image": "ghcr.io/deeplex/devcontainer-cpp:ubuntu-24.04",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -9,6 +9,8 @@
         // GitHub integration
         "github.vscode-github-actions",
         "GitHub.vscode-pull-request-github",
+        // C++ / CMake
+        "ms-vscode.cmake-tools",
       ]
     }
   },
