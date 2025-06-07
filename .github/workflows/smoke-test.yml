@@ -12,18 +12,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        baseline: [a42af01b72c28a8e1d7b48107b33e4f286a55ef6]
-        os: [ubuntu-22.04, windows-2022]
-        compiler: [gcc, msvc]
-        exclude:
-          - os: windows-2022
-            compiler: gcc
-          - os: ubuntu-22.04
-            compiler: msvc
+        baseline: [ce613c41372b23b1f51333815feb3edd87ef8a8b]
+        os: [ubuntu-24.04, windows-2022]
         include:
-          - os: ubuntu-22.04
+          - os: ubuntu-24.04
+            compiler: gcc
             triplet: x64-linux
           - os: windows-2022
+            compiler: msvc
             triplet: x64-windows-static
 
     steps:
@@ -62,6 +58,7 @@ jobs:
       - uses: lukka/run-vcpkg@v11
         env:
           VCPKG_DEFAULT_TRIPLET: ${{ matrix.triplet }}
+          VCPKG_BINARY_SOURCES: clear
         with:
           vcpkgDirectory: '${{ github.workspace }}/vcpkg'
           vcpkgGitCommitId: '${{ matrix.baseline }}'
