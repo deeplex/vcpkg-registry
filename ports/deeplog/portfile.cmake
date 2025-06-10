@@ -3,7 +3,7 @@ vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO "deeplex/deeplog"
     REF "v${VERSION}"
-    SHA512 aacb123c254d12d103ae5fa613046af2b61386cb234a223545af32d5db7035f05ed0773fe86f7fcc10a571f4f8aa4f5dee514ca89974d29ad23178308c72018f
+    SHA512 71fa0f5bbdd0bbc609b92297feb8a870e65099070078e6ae66d2ecc1cef3260c3268a3de6aa163001054a42dfb6e1146d164a0edc55c4bfd7723b52e02cc7242
 )
 
 vcpkg_cmake_configure(
