@@ -1,0 +1,4 @@
+libb2-reforged provides CMake targets:
+
+  find_package(libb2-reforged CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Deeplex::libb2-reforged)

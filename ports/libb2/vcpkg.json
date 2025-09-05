@@ -1,6 +1,8 @@
 {
   "name": "libb2",
-  "version": "0.98.0",
-  "port-version": 1,
-  "description": "C library providing accelerated versions of BLAKE2b, BLAKE2s, BLAKE2bp, BLAKE2sp, BLAKE2XOF"
+  "version": "0.99.0",
+  "description": "C library providing accelerated versions of BLAKE2b, BLAKE2s, BLAKE2bp, BLAKE2sp, BLAKE2XOF",
+  "dependencies": [
+    "libb2-reforged"
+  ]
 }
