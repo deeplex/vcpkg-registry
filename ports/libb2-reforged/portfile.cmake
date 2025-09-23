@@ -1,9 +1,15 @@
 
+vcpkg_check_features(
+    OUT_FEATURE_OPTIONS FEATURE_OPTIONS
+    FEATURES
+        libb2-compat  DPLX_BLAKE2_WITH_LIBB2_COMPAT
+)
+
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO "deeplex/libb2-reforged"
     REF "v${VERSION}"
-    SHA512 482e2fd842146ce367d46735d2c9789da704bcd4a2c3f9c45240f05c83368143e803c378b4688378d451d6667abb309baabeb57dbbf4aac63b1501bfc07d5bd9
+    SHA512 a3d32d5825a08057bc75a3038763594f7d2f9c4c1a64bb8e44acb083c81bb3b496eb331e12aee14703160c2b1deefae6f3f440b3a9020b8151e47708751d3e0b
 )
 
 vcpkg_configure_cmake(
@@ -11,6 +17,7 @@ vcpkg_configure_cmake(
     OPTIONS
         -DBUILD_TESTING=OFF
         "-DCMAKE_INSTALL_INCLUDEDIR=${CURRENT_PACKAGES_DIR}/include"
+        ${FEATURE_OPTIONS}
 )
 
 vcpkg_cmake_install()

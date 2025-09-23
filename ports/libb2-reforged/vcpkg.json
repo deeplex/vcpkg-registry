@@ -1,7 +1,9 @@
 {
   "name": "libb2-reforged",
-  "version": "0.0.0-alpha.1",
+  "version": "0.1.0",
   "description": "C library providing accelerated versions of BLAKE2b, BLAKE2s, BLAKE2XOF",
+  "homepage": "https://docs.deeplex.net/libb2-reforged/",
+  "license": "CC0-1.0 OR MIT OR Apache-2.0",
   "dependencies": [
     {
       "name": "vcpkg-cmake",
@@ -11,5 +13,10 @@
       "name": "vcpkg-cmake-config",
       "host": true
     }
-  ]
+  ],
+  "features": {
+    "libb2-compat": {
+      "description": "Build the libb2 compatibility layer (legacy API)"
+    }
+  }
 }
