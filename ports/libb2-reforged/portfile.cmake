@@ -12,7 +12,7 @@ vcpkg_from_github(
     SHA512 a3d32d5825a08057bc75a3038763594f7d2f9c4c1a64bb8e44acb083c81bb3b496eb331e12aee14703160c2b1deefae6f3f440b3a9020b8151e47708751d3e0b
 )
 
-vcpkg_configure_cmake(
+vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
     OPTIONS
         -DBUILD_TESTING=OFF
