@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        baseline: [ce613c41372b23b1f51333815feb3edd87ef8a8b]
+        baseline: [9eec002df1cd109f8f104cd966a763daf9751489]
         os: [ubuntu-24.04, windows-2022]
         include:
           - os: ubuntu-24.04
